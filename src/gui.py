@@ -36,6 +36,13 @@ class Gui:
         self._scrolling_sens = config['scrolling_sensitivity']
         self._rotation_speed = config['rotation_speed']
 
+        self._terminated = False
+
+
+    @property
+    def terminated(self) -> bool:
+        return self._terminated
+    
 
     def _render_text(self, text: str, position: Tuple[int, int]) -> None:
         text_surface = self._font.render(text, True, (255, 255, 255))
@@ -91,7 +98,8 @@ class Gui:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
-                exit()
+                self._terminated = True
+                return
             
             if event.type == pygame.MOUSEWHEEL:
                 self._upscale += (event.y * self._scrolling_sens)

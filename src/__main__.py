@@ -1,6 +1,7 @@
 import os
 import sys
 from contextlib import suppress
+from pathlib import Path
 
 import core
 from gui import Gui
@@ -11,8 +12,11 @@ from generators import Generators
 def main(path: str, model: Model) -> None:
     gui = Gui(os.path.join(path, '../assets'))
 
-    while True:
+    while not gui.terminated:
         rotation = gui.get_rotation()
+
+        if rotation is None:
+            continue
 
         if rotation != [0, 0, 0]:
             old_vertices = model.get_vertices()
