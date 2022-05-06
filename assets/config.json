@@ -1,0 +1,15 @@
+{
+    "title": "Rotation-Trigonometry",
+    "resolution": [600, 600],
+    "fps": 60,
+    
+    "font_file": "coolvetica.ttf",
+    "font_size": 25,
+    
+    "bg_color": [0, 0, 0],
+    "vertex_colors": [255, 255, 255],
+
+    "vertex_size": 2,
+    "scrolling_sensitivity": 3,
+    "rotation_speed": 0.5
+}
