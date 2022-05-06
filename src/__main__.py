@@ -1,7 +1,7 @@
 import os
 import sys
-from contextlib import suppress
 from pathlib import Path
+from contextlib import suppress
 
 import core
 from gui import Gui
@@ -10,7 +10,7 @@ from generators import Generators
 
 
 def main(path: str, model: Model) -> None:
-    gui = Gui(os.path.join(path, '../assets'))
+    gui = Gui(Path(path, '../assets'))
 
     while not gui.terminated:
         rotation = gui.get_rotation()
@@ -32,9 +32,10 @@ def main(path: str, model: Model) -> None:
 
 
 if __name__ == '__main__':
-    path = os.path.abspath(os.path.dirname(__file__))
+    abs_path = Path(__file__).resolve().parent
 
-    while True:
+    model = None
+    while model is None:
         with suppress(IndexError, ValueError):
             if sys.platform == 'win32':
                 os.system('cls')
@@ -42,7 +43,6 @@ if __name__ == '__main__':
                 os.system('clear')
 
             print('Available Models:')
-
             for index, model_name in enumerate(Generators.__all__):
                 print(f'{index+1:<{2}} : {model_name}')
 
@@ -51,4 +51,4 @@ if __name__ == '__main__':
             
             break
     
-    main(path, model)
+    main(abs_path, model)

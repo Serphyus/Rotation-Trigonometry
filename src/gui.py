@@ -1,21 +1,21 @@
-import os
 import json
-import pygame
-
+from pathlib import Path
 from typing import Tuple
+
+import pygame
 
 from model import Model
 from core import Rotation
 
 
 class Gui:
-    def __init__(self, assets_dir: str) -> None:
+    def __init__(self, assets_dir: Path) -> None:
         pygame.init()
 
-        with open(os.path.join(assets_dir, 'config.json'), 'r') as _file:
+        with open(Path(assets_dir, 'config.json'), 'r') as _file:
             config = json.load(_file)
         
-        font_file = os.path.join(assets_dir, config['font_file'])
+        font_file = Path(assets_dir, config['font_file'])
         self._font = pygame.font.Font(font_file, config['font_size'])
 
         self._display = pygame.display.set_mode(config['resolution'])
