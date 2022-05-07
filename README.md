@@ -12,8 +12,7 @@ model of choice is generated at the start and rendered using pygame.
 clone the repo and run the main.py file
 ```
 git clone https://github.com/Serphyus/Rotation-Trigonometry
-cd Rotation-Trigonometry
-py src/main.py
+py Rotation-Trigonometry/src/main.py
 ```
 
 choose model to render
