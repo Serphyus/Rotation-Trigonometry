@@ -9,8 +9,10 @@ a sequence of tuples with 2 indexes to represent the edges of the model. The
 model of choice is generated at the start and rendered using pygame.
 
 ## Usage
-after cloning the repo
+clone the repo and run the main.py file
 ```
+git clone https://github.com/Serphyus/Rotation-Trigonometry
+cd Rotation-Trigonometry
 py src/main.py
 ```
 
