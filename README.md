@@ -8,11 +8,21 @@ The models consist of a sequence of numpy arrays to represent each vertex and
 a sequence of tuples with 2 indexes to represent the edges of the model. The
 model of choice is generated at the start and rendered using pygame.
 
+## Setup
+
+
 ## Usage
-clone the repo and run the main.py file
+clone and install the python requirements
 ```
 git clone https://github.com/Serphyus/Rotation-Trigonometry
-py Rotation-Trigonometry/src/main.py
+cd Rotation-Trigonometry
+pip install -r requirements.txt
+```
+
+## Usage
+run the main.py located in the src directory
+```
+py src/main.py
 ```
 
 choose model to render
