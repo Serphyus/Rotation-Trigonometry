@@ -54,5 +54,3 @@ class Generators:
                 vertices.append(np.array((x, y, z)))
 
         return vertices, edges
-
-Generators.cube()
