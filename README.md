@@ -10,7 +10,8 @@ model of choice is generated at the start and rendered using pygame.
 
 ## Demo
 <p align="center">
-    <img src="/media/demo.gif" height="500">
+    <img src="/media/demo_cube.gif" height="350">
+    <img src="/media/demo_sphere.gif" height="350">
 </p>
 
 
