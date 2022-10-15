@@ -9,10 +9,10 @@ a sequence of tuples with 2 indexes to represent the edges of the model. The
 model of choice is generated at the start and rendered using pygame.
 
 ## Demo
-<p align="center">
+<div align="center">
     <img src="/media/demo_cube.gif" height="400">
     <img src="/media/demo_sphere.gif" height="400">
-</p>
+</div>
 
 
 ## Setup
