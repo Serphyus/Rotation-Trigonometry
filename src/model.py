@@ -1,3 +1,5 @@
+import numpy as np
+
 from core import Vertices, Edges, Shape
 
 
@@ -11,8 +13,9 @@ class Model:
         self._edges = edges
 
 
-    def set_vertices(self, vertices: Vertices) -> None:
-        self._vertices = vertices
+    def rotate(self, matrix: np.ndarray) -> None:
+        """multiplies the rotation matrix with each of the models vertices"""
+        self._vertices = [np.matmul(matrix, vertex) for vertex in self._vertices]
 
 
     def get_vertices(self) -> Vertices:

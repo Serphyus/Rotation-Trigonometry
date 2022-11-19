@@ -19,11 +19,8 @@ def main(path: str, model: Model) -> None:
             continue
 
         if rotation != [0, 0, 0]:
-            old_vertices = model.get_vertices()
             rotation_matrix = core.create_matrix(rotation)
-            
-            new_vertices = core.rotate_vertices(old_vertices, rotation_matrix)
-            model.set_vertices(new_vertices)
+            model.rotate(rotation_matrix)
         
         gui.render_model(model)
         gui.render_info()
