@@ -1,0 +1,10 @@
+{
+	"cube": {
+		"radius": 2.0,
+		"iterations": 1
+	},
+	"sphere": {
+		"radius": 2.0,
+		"rings": 30
+	}
+}
