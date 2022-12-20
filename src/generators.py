@@ -1,4 +1,5 @@
 import numpy as np
+from itertools import product
 from math import radians, cos, sin
 
 from core import Shape
@@ -12,33 +13,23 @@ class Generators:
 
 
     @staticmethod
-    def cube(radius: int = 1, iterations: int = 1) -> Shape:
+    def cube(radius: float, iterations: int) -> Shape:
         vertices = []
         edges = []
 
-        for i in range(2):
-            dist = radius if i else -radius
-            for j in range(4):
-                point = [dist for _ in range(3)]
-                if j:
-                    point[j-1] = -dist
-                
-                vertices.append(np.array(point))
+        fraction = (radius * 2) / (iterations)
         
-        for i in range(3):
-            edges.append([0, i+1])
-            edges.append([4, i+5])
-        
-        for i in range(2):
-            edges.append([1, 6+i])
-            edges.append([2, 5+(i*2)])
-            edges.append([3, 5+i])
+        points = []
+        for i in range(iterations + 1):
+            points.append((i * fraction) - radius)
+
+        vertices = [*map(np.array, product(points, repeat=3))]
 
         return vertices, edges
         
 
     @staticmethod
-    def sphere(radius: int = 2, rings: int = 30) -> Shape:
+    def sphere(radius: float, rings: int) -> Shape:
         vertices = []
         edges = []
 

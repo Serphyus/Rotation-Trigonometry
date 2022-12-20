@@ -33,8 +33,3 @@ def create_matrix(rotation: Rotation) -> np.ndarray:
     ])
 
     return matrix
-
-
-def rotate_vertices(vertices: Vertices, matrix: np.ndarray) -> Sequence[Vertices]:
-    """performs a calculation of the matrix argument on each vertex"""
-    return [np.matmul(matrix, vertex) for vertex in vertices]

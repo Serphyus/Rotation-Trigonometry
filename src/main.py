@@ -1,5 +1,6 @@
 import os
 import sys
+import json
 from pathlib import Path
 from contextlib import suppress
 
@@ -19,11 +20,8 @@ def main(path: str, model: Model) -> None:
             continue
 
         if rotation != [0, 0, 0]:
-            old_vertices = model.get_vertices()
             rotation_matrix = core.create_matrix(rotation)
-            
-            new_vertices = core.rotate_vertices(old_vertices, rotation_matrix)
-            model.set_vertices(new_vertices)
+            model.rotate(rotation_matrix)
         
         gui.render_model(model)
         gui.render_info()
@@ -47,8 +45,16 @@ if __name__ == '__main__':
                 print(f'{index+1:<{2}} : {model_name}')
 
             choice = int(input('\n> '))
-            model = Model(*getattr(Generators, Generators.__all__[choice-1])())
+
+            generator_name = Generators.__all__[choice-1]
+            generator_func = getattr(Generators, generator_name)
             
+            with open(Path(abs_path, "../assets/generators.json"), "r") as file:
+                _defaults = json.load(file)
+            generator_kwargs = _defaults[generator_name]
+
+            model = Model(*generator_func(**generator_kwargs))
+
             break
     
     main(abs_path, model)
