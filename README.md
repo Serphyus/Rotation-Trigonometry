@@ -2,7 +2,7 @@
   Rotation Trigonometry
 </h1>
 
-This project is a uses uses a general rotation matrix to calculate the rotation
+This project uses a general rotation matrix to calculate the rotation
 of a model consisting of [x,y,z] vertices to represent each point in it's shape.
 The models consist of a sequence of numpy arrays to represent each vertex and
 a sequence of tuples with 2 indexes to represent the edges of the model. The
